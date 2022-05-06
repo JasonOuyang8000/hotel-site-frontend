@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, Flex, Button, Heading, HStack, Link } from "@chakra-ui/react";
+import { NavLink as ReactLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -22,20 +23,28 @@ const Navbar = () => {
           Hotel Search
         </Heading>
         <HStack justify={"flex-end"} spacing="40px">
-          <Link>Home</Link>
-          <Link>About Us</Link>
-          <Link>Sign Up</Link>
-          <Button
-            gap="2"
-            display={{ base: "none", md: "inline-flex" }}
-            fontSize={"sm"}
-            fontWeight={600}
-            color={"white"}
-            bg={"font.700"}
-            variant="solid"
-          >
-            Login
-          </Button>
+          <ReactLink to="/" exact>
+            Home
+          </ReactLink>
+          <ReactLink to="/AboutUs">
+            <Link>About Us</Link>
+          </ReactLink>
+          <ReactLink to="/SignUp">
+            <Link>Sign Up</Link>
+          </ReactLink>
+          <ReactLink to="/Login">
+            <Button
+              gap="2"
+              display={{ base: "none", md: "inline-flex" }}
+              fontSize={"sm"}
+              fontWeight={600}
+              color={"white"}
+              bg={"font.700"}
+              variant="solid"
+            >
+              Login
+            </Button>
+          </ReactLink>
         </HStack>
       </Flex>
     </Box>
