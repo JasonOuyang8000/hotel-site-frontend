@@ -1,8 +1,8 @@
 export const colors = {
-  brand: {
-    900: "#1a365d",
-    800: "#153e75",
-    700: "#2a69ac",
+  font: {
+    900: "#FAEBD7",
+    800: "#2F4F4F",
+    700: "#DAA520",
   },
 
   black: {
