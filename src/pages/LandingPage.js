@@ -1,4 +1,5 @@
 import React from "react";
+import landingImage from "../assets/landing.jpg";
 import {
   Box,
   Image,
@@ -12,17 +13,13 @@ import {
 const LandingPage = () => {
   return (
     <Box>
-      <Flex
-        align="center"
-        justify={{ base: "center", md: "space-around", xl: "space-between" }}
-        direction={{ base: "column-reverse", md: "row" }}
-        wrap="no-wrap"
-        minH="70vh"
-        px={8}
-        mb={16}
-      >
-        <Stack></Stack>
-      </Flex>
+      <Image
+        height="100%"
+        width="100%"
+        objectFit="cover"
+        src={landingImage}
+        alt="landing image"
+      />
     </Box>
   );
 };

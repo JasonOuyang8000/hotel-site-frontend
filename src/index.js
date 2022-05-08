@@ -1,4 +1,5 @@
 import React from "react";
+import { createRoot } from "react-dom/client";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
@@ -8,7 +9,9 @@ import { colors } from "./themes/themes";
 
 const theme = extendTheme({ colors });
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const container = document.getElementById("app");
+const root = createRoot(container); // createRoot(container!)
+
 root.render(
   <ChakraProvider theme={theme}>
     <BrowserRouter>

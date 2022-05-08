@@ -23,7 +23,7 @@ const Navbar = () => {
           Hotel Search
         </Heading>
         <HStack justify={"flex-end"} spacing="40px">
-          <ReactLink to="/" exact>
+          <ReactLink to="/" exact={true}>
             Home
           </ReactLink>
           <ReactLink to="/AboutUs">
