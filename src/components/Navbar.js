@@ -9,12 +9,12 @@ const Navbar = () => {
       py="20px"
       borderBottom={1}
       borderStyle={"solid"}
-      borderColor={"font.800"}
+      borderColor={"green.800"}
       width="full"
       alignItems="flex-end"
     >
       <Flex
-        color="font.800"
+        color="green.800"
         minWidth="max-content"
         alignItems="center"
         justifyContent="space-between"
@@ -39,7 +39,8 @@ const Navbar = () => {
               fontSize={"sm"}
               fontWeight={600}
               color={"white"}
-              bg={"font.700"}
+              bg={"yellow.700"}
+              _hover={{ bg: "yellow.700" }}
               variant="solid"
             >
               Login
