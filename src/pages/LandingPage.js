@@ -7,11 +7,8 @@ import {
   FormControl,
   FormLabel,
   Input,
-  FormErrorMessage,
   HStack,
   Heading,
-  Stack,
-  Text,
 } from "@chakra-ui/react";
 
 const LandingPage = () => {

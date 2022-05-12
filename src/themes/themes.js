@@ -10,7 +10,16 @@ export const colors = {
   black: {
     100: "#000000",
   },
+
   white: {
     100: "#FFFFFF",
+  },
+
+  gray: {
+    100: "#EDF2F7",
+  },
+
+  darkGray: {
+    100: "#718096",
   },
 };

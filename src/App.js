@@ -8,6 +8,7 @@ function App() {
   // console.log(currentPath);
   const location = useLocation();
   const isLandingPage = location.pathname === "/landing";
+
   console.log();
   return (
     <div className="App">
