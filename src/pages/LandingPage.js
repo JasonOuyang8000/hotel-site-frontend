@@ -58,8 +58,8 @@ const LandingPage = () => {
                   <Button
                     shadow="xl"
                     color={"white"}
-                    bg={"yellow.700"}
-                    _hover={{ bg: "yellow.700" }}
+                    bg="teal.100"
+                    _hover={{ bg: "teal.100" }}
                     size="md"
                   >
                     Submit

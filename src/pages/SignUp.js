@@ -24,7 +24,7 @@ const SignUp = () => {
         <Stack spacing="8">
           <Stack spacing="6">
             <Stack spacing={{ base: "3", md: "4" }} textAlign="center">
-              <Heading color="green.800">Register</Heading>
+              <Heading color="darkTeal.100">Register</Heading>
               <Heading color="darkGray.100" size="md">
                 Create a new account
               </Heading>
@@ -66,12 +66,14 @@ const SignUp = () => {
               </Stack>
               <HStack>
                 <Text>Already have an account?</Text>
-                <Button variant="link" colorScheme="blue">
+                <Button variant="link" color="teal.100">
                   Log in
                 </Button>
               </HStack>
               <Stack>
-                <Button colorScheme="blue">Sign in</Button>
+                <Button color="white" bg="teal.100">
+                  Sign in
+                </Button>
               </Stack>
             </Stack>
           </Box>

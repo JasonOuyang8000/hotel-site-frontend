@@ -1,10 +1,6 @@
 export const colors = {
-  green: {
-    800: "#2F4F4F",
-  },
-
-  yellow: {
-    700: "#DAA520",
+  teal: {
+    100: "#037367",
   },
 
   black: {
@@ -21,5 +17,9 @@ export const colors = {
 
   darkGray: {
     100: "#718096",
+  },
+
+  darkTeal: {
+    100: "#16594A",
   },
 };

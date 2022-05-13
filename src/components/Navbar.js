@@ -1,28 +1,35 @@
 import React from "react";
 import { Box, Flex, Button, Heading, HStack, Link } from "@chakra-ui/react";
 import { NavLink as ReactLink } from "react-router-dom";
+import "@fontsource/roboto/700.css";
 
 const Navbar = () => {
   return (
     <Box
-      px="200px"
+      px="40px"
       py="20px"
       borderBottom={1}
-      borderStyle="solid"
-      borderColor="green.800"
+      shadow="xl"
+      position="sticky"
+      top={0}
       width="full"
       alignItems="flex-end"
     >
       <Flex
-        color="green.800"
         minWidth="max-content"
         alignItems="center"
         justifyContent="space-between"
       >
-        <Heading mr="auto" fontSize={20} letterSpacing="1.5px">
+        <Heading color="darkTeal.100" mr="auto">
           Hotel Search
         </Heading>
-        <HStack justify="flex-end" spacing="40px">
+        <HStack
+          fontSize="lg"
+          fontWeight="400"
+          justify="flex-end"
+          spacing="40px"
+          color="teal.100"
+        >
           <ReactLink to="/" exact={true}>
             Home
           </ReactLink>
@@ -30,18 +37,29 @@ const Navbar = () => {
             <Link>About Us</Link>
           </ReactLink>
           <ReactLink to="/SignUp">
-            <Link>Sign Up</Link>
+            <Button
+              fontSize="md"
+              color="teal.100"
+              bg="white.100"
+              border="2px"
+              _hover={{
+                bg: "teal.100",
+                color: "white.100",
+              }}
+            >
+              Sign Up
+            </Button>
           </ReactLink>
           <ReactLink to="/Login">
             <Button
-              gap="2"
-              display={{ base: "none", md: "inline-flex" }}
-              fontSize={"sm"}
-              fontWeight={600}
+              fontSize="md"
               color="white"
-              bg="yellow.700"
-              _hover={{ bg: "yellow.700" }}
-              variant="solid"
+              bg="teal.100"
+              _hover={{
+                bg: "white.100",
+                color: "teal.100",
+                border: "2px",
+              }}
             >
               Login
             </Button>
