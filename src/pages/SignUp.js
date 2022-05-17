@@ -22,13 +22,11 @@ const SignUp = () => {
         px={{ base: "0", sm: "8" }}
       >
         <Stack spacing="8">
-          <Stack spacing="6">
-            <Stack spacing={{ base: "3", md: "4" }} textAlign="center">
-              <Heading color="darkTeal.100">Register</Heading>
-              <Heading color="darkGray.100" size="md">
-                Create a new account
-              </Heading>
-            </Stack>
+          <Stack spacing={{ base: "3", md: "4" }} textAlign="center">
+            <Heading color="darkTeal.100">Register</Heading>
+            <Heading color="darkGray.100" size="md">
+              Create a new account
+            </Heading>
           </Stack>
           <Box
             py={{ base: "0", sm: "8" }}
@@ -40,15 +38,15 @@ const SignUp = () => {
             <Stack spacing="6">
               <Stack spacing="5">
                 <FormControl>
-                  <FormLabel htmlFor="email">Username</FormLabel>
+                  <FormLabel htmlFor="username">Username</FormLabel>
                   <Input />
                 </FormControl>
                 <FormControl>
-                  <FormLabel htmlFor="email">First name</FormLabel>
+                  <FormLabel htmlFor="firstname">First name</FormLabel>
                   <Input />
                 </FormControl>
                 <FormControl>
-                  <FormLabel htmlFor="email">Last name</FormLabel>
+                  <FormLabel htmlFor="lastname">Last name</FormLabel>
                   <Input />
                 </FormControl>
                 <FormControl>
@@ -56,11 +54,11 @@ const SignUp = () => {
                   <Input />
                 </FormControl>
                 <FormControl>
-                  <FormLabel htmlFor="email">Password</FormLabel>
-                  <Input id="email" type="email" />
+                  <FormLabel htmlFor="password">Password</FormLabel>
+                  <Input />
                 </FormControl>
                 <FormControl>
-                  <FormLabel htmlFor="email">Confirm Password</FormLabel>
+                  <FormLabel htmlFor="password">Confirm Password</FormLabel>
                   <Input />
                 </FormControl>
               </Stack>
@@ -72,7 +70,7 @@ const SignUp = () => {
               </HStack>
               <Stack>
                 <Button color="white" bg="teal.100">
-                  Sign in
+                  Sign up
                 </Button>
               </Stack>
             </Stack>
