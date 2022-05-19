@@ -9,7 +9,6 @@ function App() {
   const location = useLocation();
   const isLandingPage = location.pathname === "/landing";
 
-  console.log();
   return (
     <div className="App">
       {!isLandingPage && <Navbar />}
