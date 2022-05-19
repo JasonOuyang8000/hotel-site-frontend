@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Flex, Button, Heading, HStack, Link } from "@chakra-ui/react";
+import { Box, Flex, Button, Heading, HStack } from "@chakra-ui/react";
 import { NavLink as ReactLink } from "react-router-dom";
 import "@fontsource/roboto/700.css";
 
@@ -30,12 +30,8 @@ const Navbar = () => {
           spacing="40px"
           color="teal.100"
         >
-          <ReactLink to="/" exact={true}>
-            Home
-          </ReactLink>
-          <ReactLink to="/AboutUs">
-            <Link>About Us</Link>
-          </ReactLink>
+          <ReactLink to="/">Home</ReactLink>
+          <ReactLink to="/AboutUs">About Us</ReactLink>
           <ReactLink to="/SignUp">
             <Button
               fontSize="md"
