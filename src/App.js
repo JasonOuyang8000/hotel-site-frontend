@@ -9,6 +9,8 @@ function App() {
   const location = useLocation();
   const isLandingPage = location.pathname === "/landing";
 
+  console.log(process.env.REACT_APP_BACKEND_LINK);
+
   return (
     <div className="App">
       {!isLandingPage && <Navbar />}
