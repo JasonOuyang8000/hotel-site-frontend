@@ -14,6 +14,7 @@ const Navbar = () => {
       top={0}
       width="full"
       alignItems="flex-end"
+      bg="white"
     >
       <Flex
         minWidth="max-content"

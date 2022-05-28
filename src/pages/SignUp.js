@@ -16,13 +16,9 @@ import {
 const SignUp = () => {
   return (
     <Box bg="gray.100">
-      <Container
-        maxW="lg"
-        py={{ base: "12", md: "24" }}
-        px={{ base: "0", sm: "8" }}
-      >
+      <Container maxW="lg" px="8" py="20">
         <Stack spacing="8">
-          <Stack spacing={{ base: "3", md: "4" }} textAlign="center">
+          <Stack spacing="3" textAlign="center">
             <Heading color="darkTeal.100">Register</Heading>
             <Heading color="darkGray.100" size="md">
               Create a new account
@@ -69,7 +65,15 @@ const SignUp = () => {
                 </Button>
               </HStack>
               <Stack>
-                <Button color="white" bg="teal.100">
+                <Button
+                  color="white"
+                  bg="teal.100"
+                  _hover={{
+                    bg: "white.100",
+                    color: "teal.100",
+                    border: "2px",
+                  }}
+                >
                   Sign up
                 </Button>
               </Stack>

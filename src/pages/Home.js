@@ -1,17 +1,23 @@
-import React from "react";
-import homeImage from "../assets/home.jpg";
-import { Image, Box } from "@chakra-ui/react";
+import React, { useState } from "react";
+import { Box, Button } from "@chakra-ui/react";
+import Search from "../components/Search";
+import SearchList from "../components/SearchList";
 
 const Home = () => {
+  const [data, setData] = useState([]);
+  const [showSearchBar, setShowSearchBar] = useState(true);
+
   return (
     <Box>
-      <Image
-        height="600px"
-        width="100%"
-        objectFit="cover"
-        src={homeImage}
-        alt="home image"
-      />
+      {showSearchBar && (
+        <Search setData={setData} setShowSearchBar={setShowSearchBar} />
+      )}
+      {!showSearchBar && (
+        <SearchList data={data} setShowSearchBar={setShowSearchBar} />
+      )}
+      {!showSearchBar && (
+        <Button onClick={() => setShowSearchBar(true)}>Go Back</Button>
+      )}
     </Box>
   );
 };
