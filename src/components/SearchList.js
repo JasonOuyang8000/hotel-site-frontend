@@ -17,74 +17,91 @@ import {
 
 import Stars from "./Stars";
 
-import { hotelReviews } from "../api/search";
-import { hotelPhotos } from "../api/search";
+import { hotelReviews, hotelPhotos } from "../api/search";
 
-const SearchList = ({ data }) => {
-  const [reviews, setReviews] = useState([]);
-  const [photos, setPhotos] = useState([]);
-
-  const { isOpen, onOpen, onClose } = useDisclosure();
-
-  const handleSubmit = async (id) => {
-    console.log(id);
-    const res = await hotelReviews(id);
-    setReviews(res.reviews);
-    onOpen();
+const ModalRender = (view, onClose, reviews, photos, setView) => {
+  const close = () => {
+    setView(null);
+    onClose();
   };
 
-  const photoSubmitHandler = async (id) => {
-    console.log(id);
-    const res = await hotelPhotos(id);
-    setPhotos(res.photos);
-    onOpen();
-  };
-  console.log(data[0]);
-
-  return (
-    <>
-      <Modal onClose={onClose} isOpen={isOpen} isCentered size="3xl">
-        <ModalOverlay />
-
-        <ModalContent>
-          <ModalHeader>Reviews</ModalHeader>
-          <ModalCloseButton />
-          {reviews.length && (
+  switch (view) {
+    case "review":
+      return (
+        <Modal onClose={close} isOpen={true} isCentered size="3xl">
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader>Reviews</ModalHeader>
+            <ModalCloseButton />
+            {reviews.length && (
+              <ModalBody>
+                {reviews.map((review) => (
+                  <Box key={review.id} p="3">
+                    <Text mb="10px" fontWeight="bold">
+                      {review.user.name}
+                    </Text>
+                    <Stars rating={review.rating} id={review.id} />
+                    <Box mt="10px">{review.text}</Box>
+                    <Divider p="2.5" />
+                  </Box>
+                ))}
+              </ModalBody>
+            )}
+          </ModalContent>
+        </Modal>
+      );
+    case "image":
+      return (
+        <Modal
+          onClose={close}
+          isOpen={true}
+          isCentered
+          size="4xl"
+          scrollBehavior="inside"
+        >
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader>Photos</ModalHeader>
+            <ModalCloseButton />
             <ModalBody>
-              {reviews.map((review) => (
-                <Box key={review.id} p="3">
-                  <Text mb="10px" fontWeight="bold">
-                    {review.user.name}
-                  </Text>
-                  <Stars rating={review.rating} id={review.id} />
-                  <Box mt="10px">{review.text}</Box>
-                  <Divider p="2.5" />
+              {photos.map((photo, idx) => (
+                <Box key={idx} p="3">
+                  <Image src={photo} mb="10px" fontWeight="bold" />
                 </Box>
               ))}
             </ModalBody>
-          )}
-        </ModalContent>
-      </Modal>
+          </ModalContent>
+        </Modal>
+      );
+    default:
+      return null;
+  }
+};
+const SearchList = ({ data }) => {
+  const [view, setView] = useState(null);
+  const [reviews, setReviews] = useState([]);
+  const [photos, setPhotos] = useState([]);
 
-      {/* <Modal onClose={onClose} isOpen={isOpen} isCentered size="3xl">
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Photos</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-            {photos.map((photo) => (
-              <Box key={photo.id} p="3">
-                <Image mb="10px" fontWeight="bold">
-                  {photo.data.photos}
-                </Image>
-              </Box>
-            ))}
-          </ModalBody>
-        </ModalContent>
-      </Modal> */}
+  const { onClose } = useDisclosure();
+
+  const handleSubmit = async (id) => {
+    const res = await hotelReviews(id);
+    setView("review");
+    setReviews(res.reviews);
+  };
+
+  const photoSubmitHandler = async (id) => {
+    const res = await hotelPhotos(id);
+    setView("image");
+    setPhotos(res.photos);
+  };
+
+  return (
+    <>
+      {ModalRender(view, onClose, reviews, photos, setView)}
       <Flex flexDirection="column" alignItems="center" justifyContent="center">
         <Flex flexWrap="wrap" p="5" paddingTop="0px">
-          {data.map((item, photo) => (
+          {data.map((item, index) => (
             <Flex
               flexDirection="column"
               key={item.id}
@@ -100,7 +117,7 @@ const SearchList = ({ data }) => {
                 height={300}
                 alt="hotels"
                 objectFit="cover"
-                onClick={() => photoSubmitHandler(photo.id)}
+                onClick={() => photoSubmitHandler(item.id)}
                 cursor="pointer"
               />
 
