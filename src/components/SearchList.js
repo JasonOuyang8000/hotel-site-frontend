@@ -65,8 +65,8 @@ const ModalRender = (view, onClose, reviews, photos, setView) => {
             <ModalCloseButton />
             <ModalBody>
               {photos.map((photo, idx) => (
-                <Box key={idx} p="3">
-                  <Image src={photo} mb="10px" fontWeight="bold" />
+                <Box key={idx} p="5">
+                  <Image src={photo} />
                 </Box>
               ))}
             </ModalBody>
