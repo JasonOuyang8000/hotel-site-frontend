@@ -14,6 +14,7 @@ const Navbar = () => {
       top={0}
       width="full"
       alignItems="flex-end"
+      bg="white"
     >
       <Flex
         minWidth="max-content"
@@ -32,6 +33,7 @@ const Navbar = () => {
         >
           <ReactLink to="/">Home</ReactLink>
           <ReactLink to="/AboutUs">About Us</ReactLink>
+          <ReactLink to="Checklist">Checklist</ReactLink>
           <ReactLink to="/SignUp">
             <Button
               fontSize="md"

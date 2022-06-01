@@ -54,7 +54,15 @@ const Login = () => {
                 </Button>
               </HStack>
               <Stack spacing="6">
-                <Button color="white" bg="teal.100">
+                <Button
+                  color="white"
+                  bg="teal.100"
+                  _hover={{
+                    bg: "white.100",
+                    color: "teal.100",
+                    border: "2px",
+                  }}
+                >
                   Sign in
                 </Button>
 
