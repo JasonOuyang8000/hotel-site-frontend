@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import landingImage from "../assets/landing.jpg";
 import {
   Box,
@@ -11,7 +11,27 @@ import {
   Heading,
 } from "@chakra-ui/react";
 
+import { sendEmail } from "../client";
+import { useNavigate } from "react-router-dom";
+
 const LandingPage = () => {
+  const [email, setEmail] = useState("");
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    localStorage.setItem("seenLandingPage", "seen");
+  }, []);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      if (email !== "") {
+        await sendEmail(email);
+        navigate("/");
+      }
+    } catch (error) {}
+  };
   return (
     <Box position="relative">
       <Box
@@ -42,7 +62,7 @@ const LandingPage = () => {
             Find your next vacation spot
           </Heading>
           <Box>
-            <form>
+            <form onSubmit={handleSubmit}>
               <FormControl>
                 <FormLabel fontWeight="bold" fontSize="lg" htmlFor="email">
                   Email address
@@ -54,6 +74,8 @@ const LandingPage = () => {
                     bg="white"
                     id="email"
                     type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                   />
                   <Button
                     shadow="xl"
@@ -61,6 +83,7 @@ const LandingPage = () => {
                     bg="teal.100"
                     _hover={{ bg: "teal.100" }}
                     size="md"
+                    type="submit"
                   >
                     Submit
                   </Button>

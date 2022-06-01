@@ -33,6 +33,7 @@ const Navbar = () => {
         >
           <ReactLink to="/">Home</ReactLink>
           <ReactLink to="/AboutUs">About Us</ReactLink>
+          <ReactLink to="Checklist">Checklist</ReactLink>
           <ReactLink to="/SignUp">
             <Button
               fontSize="md"
